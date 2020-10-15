@@ -1,6 +1,9 @@
 # msfs20_custom_spad_controller
 Microsoft Flight Simulator 2020 - Custom Panel Controller
 
+Custom control panel for Microsoft Flight Simulator 2020 that uses SPAD.neXt as interface between game and Arduino microcontroller. 
+
+
 
 ### Installation Instructions:
 
