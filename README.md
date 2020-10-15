@@ -25,15 +25,17 @@ Control board utilizes x3 MCP23017 I2C I/O expander ICs to provide control over 
 ### Installation Instructions:
 1. Build the control interface board by following [schematics](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Electrical/Schematic.pdf).
 
-2. 3D print STL files located in `/Hardware/Panel 3D Files/STL/`. You will need 3 Brackets, 1 Slide Potentiometer Lever Hat, and one of each of the three faceplates. 
+2. 3D print STL files located in `/Hardware/Panel 3D Files/STL/`. You will need 3 Brackets, 1 Slide Potentiometer Lever Hat, and one of each of the three faceplates. Use soldering iron to heat insert four M3-4mm knurled brass inserts into each bracket's corner faceplate mounting holes and secure each faceplate to bracket with four M3-6mm bolts.  
 
 3. Install buttons/potentiometers on to faceplate holes (Note: You will need to use a deburring tool to slightly enlarge the component holes as there is very little tolerance) and wire up connections between panel and control interface board.  Refer to [Bill of Materials](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Bill%20of%20Materials.txt) for parts information. 
 
-3. To upload microcontroller firmware, install PlatformIO IDE and add `/Software/AVR/FLIGHT SIM SPAD INTERFACE/` as new folder project. Upload code to your Arduino Pro Micro. 
+4. To upload microcontroller firmware, install PlatformIO IDE and add `/Software/AVR/FLIGHT SIM SPAD INTERFACE/` as new folder project. Upload code to your Arduino Pro Micro. 
 
-4. 
-2. Add Arduino as Serial device to SPAD.neXt under settings->Devices->Serial Devices.
 
+5. Add control interface board to SPAD.neXt as a new Serial device to SPAD.neXt under settings->Devices->Serial Devices->"Add New Device".
+
+	Serial Port = = your USB COM port
+	
 	Speed = 115200
 	
 	Enable DTR = ON
@@ -41,7 +43,7 @@ Control board utilizes x3 MCP23017 I2C I/O expander ICs to provide control over 
 	32 Bit = OFF
 	
 
-3. Add each of the scripts included in `/Software/SPAD.next Configuration/` folder to SPAD.neXt script panel.
+6. Add each of the scripts included in `/Software/SPAD.next Configuration/` folder to SPAD.neXt script panel.
 
 
 ![alt text](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/resources/3d%20render.png?raw=true)
