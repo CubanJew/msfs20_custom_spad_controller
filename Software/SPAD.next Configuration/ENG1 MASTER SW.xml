@@ -1,0 +1,25 @@
+<BaseEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" BoundTo="SCRIPT_1_1" xmlns="http://www.fsgs.com/SPAD">
+  <EventDefinitions>
+    <EventDefinition Trigger="VALUE">
+      <EventConditions>
+        <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="{DD7E3826-E439-4484-B186-F1443F3BC522}:SWITCHES/ENG1_STARTER_MASTER" />
+      </EventConditions>
+      <EventActions>
+        <EventActionControl TargetDataDefinition="SIMCONNECT:TOGGLE_STARTER1" Value="0" ValueOperation="Set" />
+        <EventActionControl TargetDataDefinition="MSFS:FUELSYSTEM_VALVE_OPEN" Value="6" ValueOperation="Set" />
+      </EventActions>
+    </EventDefinition>
+    <EventDefinition Trigger="VALUE">
+      <EventConditions>
+        <EventCondition ConditionComparator="Equals" ConditionTargetValue="-1" ConditionValueSource="{DD7E3826-E439-4484-B186-F1443F3BC522}:SWITCHES/ENG1_STARTER_MASTER" />
+      </EventConditions>
+      <EventActions>
+        <EventActionControl TargetDataDefinition="SIMCONNECT:TOGGLE_STARTER1" Value="0" ValueOperation="Set" />
+        <EventActionControl TargetDataDefinition="MSFS:FUELSYSTEM_VALVE_CLOSE" Value="6" ValueOperation="Set" />
+      </EventActions>
+    </EventDefinition>
+  </EventDefinitions>
+  <Options>
+    <Option Key="NAME" Value="ENG1 MASTER SW" />
+  </Options>
+</BaseEvent>

@@ -1,0 +1,25 @@
+<BaseEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" BoundTo="SCRIPT_1_3" xmlns="http://www.fsgs.com/SPAD">
+  <EventDefinitions>
+    <EventDefinition Trigger="VALUE">
+      <EventConditions>
+        <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="{DD7E3826-E439-4484-B186-F1443F3BC522}:SWITCHES/BRAKE" />
+      </EventConditions>
+      <EventActions>
+        <EventActionControl TargetDataDefinition="SIMCONNECT:AXIS_LEFT_BRAKE_SET" Value="15000" ValueOperation="Set" />
+        <EventActionControl TargetDataDefinition="SIMCONNECT:AXIS_RIGHT_BRAKE_SET" Value="15000" ValueOperation="Set" />
+      </EventActions>
+    </EventDefinition>
+    <EventDefinition Trigger="VALUE">
+      <EventConditions>
+        <EventCondition ConditionComparator="Equals" ConditionTargetValue="0" ConditionValueSource="{DD7E3826-E439-4484-B186-F1443F3BC522}:SWITCHES/BRAKE" />
+      </EventConditions>
+      <EventActions>
+        <EventActionControl TargetDataDefinition="SIMCONNECT:AXIS_LEFT_BRAKE_SET" Value="-16838" ValueOperation="Set" />
+        <EventActionControl TargetDataDefinition="SIMCONNECT:AXIS_RIGHT_BRAKE_SET" Value="-16838" ValueOperation="Set" />
+      </EventActions>
+    </EventDefinition>
+  </EventDefinitions>
+  <Options>
+    <Option Key="NAME" Value="BRAKE PEDAL" />
+  </Options>
+</BaseEvent>

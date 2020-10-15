@@ -1,0 +1,44 @@
+Panel Controls (see "Hardware\Electrical\IO Table.jpg" for BOM # cross-reference):
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+BOM #	QTY	Description										Model						Link
+1	14	12mm Blue LED Momentary SPST-1NO Pushbutton 4-Pin 3VDC					SKU CP.QM.940-C					https://www.ebay.com/p/925617176
+2	1	Mini Toggle (Momentary) Switch DPDT 3-Position 6-Pin ON/OFF/ON 6mm mount hole		Generic						https://www.amazon.com/Twidec-Momentary-Miniature-Waterproof-MTS-223-MZ/dp/B07VK46JQ3
+3	2	Mini Toggle Switch 2-position Maintained ON-ON SPDT 3Pin Flat Handle 6.35mm mount hole	SH T8013-UHB / generic				https://www.amazon.com/T8013-UHB-Handle-Maintained-Position-Toggle/dp/B07M5M8DT8
+4	3	16mm Green LED Momentary SPST-1NO Pushbutton 4-Pin 3VDC					Uxcell UPC 608641347241 / Model R16-503/BD	https://www.amazon.com/uxcell-Green-Momentary-Button-Switch/dp/B008ZYD3TI
+5	1	16mm 2-Position Latching Rotary Selector Switch SPDT-1NO-1NC				Uxcell UPC A17052700ux0245			https://www.amazon.com/gp/product/B078M9KPN8/
+6	2	2-Position Switch SPST 0.5" hole							Calterm Switch Duckbill 20A 40090 / generic	https://www.amazon.com/Calterm-40090-Switch-Duckbill-Black/dp/B000CINK70/ref=sr_1_1?dchild=1&keywords=Calterm+40090&qid=1602452739&s=automotive&sr=1-1
+7	1	16mm 3-Position Latching Maintained Rotary Selector Switch 2NO-2NC			Taiss LA16-11X31 (ASIN B07GWN5X4T)		https://www.amazon.com/gp/product/B07GWN5X4T
+8	1	Momentary Foot Switch									Philmore LKG p/n 30-17090			https://www.amazon.com/gp/product/B004GIIYK0
+		1/4" TRS to 3.5mm headphone jack adapter						MillSO ASIN B07SRWZ77L				https://www.amazon.com/gp/product/B07SRWZ77L
+		3.5mm Female Panel Mount Headphone Jack "						Generic / Philmore 70-534			https://www.amazon.com/Philmore-Isolated-Stereo-Female-Headphone/dp/B00OGLCR3W							
+9	1	Slide Potentiometer 10K Ohm								TT Electronics/BI p/n PS30-10PB10BR10K		https://www.mouser.com/ProductDetail/BI-Technologies-TT-Electronics/PS30-10PB10BR10K?qs=56eeD6vBg8gbpflaGq2ZjQ%3D%3D
+10	5	100K Ohm Linear Taper Rotary Potentiometer 3-pin 15mm shaft				Generic						https://www.amazon.com/HiLetgo-Single-Joint-Potentiometer-Variable-Resistors/dp/B07VJYH29F
+
+
+
+
+Panel Hardware	
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QTY	Description
+12	M3 6mm bolts
+12	M3 4mm height knurled brass insert
+
+Control board:
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Qty	Description
+1	Arduino Pro Micro 5V 16 MHz
+3	MCP23017 + 28-pin 2.54mm DIP Socket
+6	Resistor - 4.7 kOhm
+3	Resistor - 1 kOhm
+14	Resistor - 470 Ohm
+5	Resistor - 10 kOhm
+3	Capacitor - 0.1 uF (Ceramic)
+1	Capacitor - 10 uF (Electrolytic)
+2	12 Pin Female Header Pins 2.54" pitch
+6	8-pin Screw Terminal Block 2.54mm pitch
+1	6-pin Screw Terminal Block 2.54mm pitch
+1	2-pin Screw Terminal Block 2.54mm pitch
+1	4-pin Screw Terminal Block 2.54mm pitch
+A.R.	Wire
+A.R.	Standoffs
+A.R.	Perfboard
