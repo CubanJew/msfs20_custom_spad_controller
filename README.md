@@ -69,3 +69,4 @@ To-do list:
 - Combine ground spoiler arm toggle switch and speed brake slide potentiometer into a single physical component.
 - Add logic to force game's initial state of anti-skid, ground spoiler arm, and parking brake to match control board when controller is first connected.
 - Implement spare 2 buttons and 1 potentiometer on panel. 
+- Fabricate front faceplates with backlit labels using http://www.frontpanelexpress.com/ 
