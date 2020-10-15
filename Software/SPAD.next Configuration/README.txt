@@ -1,13 +1,9 @@
-Script 1:
-	NAME = BRAKE PEDAL
+Copy the included scripts in this folder to SPAD.neXt.
 
-	EVENT1:
-		CONDITION = PROVIDER_CJ Custom Panel:SWITCHES\BRAKE equals 1
-		ACTIONS = Send AXIS_
-	
-Script 2:
+These SPAD.neXt scripts are required due to:
 
-Script 3:
+1. Ensure fidelity between control state in-game with physical toggle button.
 
-Script 4:
+	... or ...
 
+2. Because multiple simulation events are required for a particular digital input (e.g., foot brake pedal).
