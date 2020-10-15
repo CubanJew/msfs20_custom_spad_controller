@@ -6,7 +6,7 @@ Custom control panel for Microsoft Flight Simulator 2020 using SPAD.neXt as inte
 
 Supports:
 - **17 pushbutton with LED** (LED is controlled by state of control in the game).
-	_[fuel pumps 1-6, cross-feed pump, APU-master, APU-start, APU-bleed air, APU-gen, external power, auto-brake level control (low + med + max) x2 TBD (spare)]_
+	_[fuel pumps 1-6, cross-feed pump, APU-master, APU-start, APU-bleed air, APU-gen, external power, auto-brake level control (low + med + max), x2 TBD (spare)]_
 	
 - **5 toggle switches**
 	_[anti-skid, ground spoiler arm, engine 1 + 2 master starters, reverse throttle toggle]_
