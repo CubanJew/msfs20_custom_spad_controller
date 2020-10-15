@@ -60,6 +60,6 @@ Notes:
 2. The size of the microcontroller firmware is large relative to flash program memory of the Arduino Pro Micro. As such, many repeated firmware uploads may randomly corrupt the bootloader. You will need another Arduino or an AVR programmer to reupload the bootloader to allow firmware uploading from your IDE.  
 
 To-do list:
-- Bracket top/bottom mounting holes are not vertically aligned.
+- Fix bracket top mounting hole alignment.
 - Combine ground spoiler arm toggle switch and speed brake slide potentiometer into a single physical component.
 - Add logic to force game's initial state of anti-skid, ground spoiler arm, and parking brake to match control board when controller is first connected.
