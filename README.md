@@ -47,6 +47,8 @@ References:
 - [I/O Reference Table](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Electrical/IO%20Table.JPG) 
 - [Bill of Material](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Bill%20of%20Materials.txt)
 
+Notes:
+Faceplate component holes do not have much tolerance; you will need to use a debururing to slightly enlarge the holes. 
 
 Issues:
 Bracket top/bottom mounting holes are not vertically aligned.
