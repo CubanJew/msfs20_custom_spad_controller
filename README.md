@@ -12,11 +12,11 @@ Supports:
 	_(anti-skid, ground spoiler arm, engine 1 master starter, engine 2 master starter, reverse throttle toggle)_
 	
 - 2 selector switches
-	_(engine mode switch (crank/normal/ignition), parking break)_
+	_[engine mode switch (crank/normal/ignition), parking break)_
 - 6 potentiometers (5 rotary + 1 slide)
-	_(lights: PFD/ND/FD, ECAM, flood, panel, 1 TBD (spare);  speed brake (slide pot))_
+	_[lights: PFD/ND/FD, ECAM, flood, panel, 1 TBD (spare);  speed brake (slide pot)]_
 - 1 foot pedal switch
-	_(brake pedals)_
+	_[brake pedals]_
 
 
 Engine 1 & 2 master starters
