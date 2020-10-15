@@ -25,9 +25,9 @@ Control board utilizes x3 MCP23017 I2C I/O expander ICs to provide control over 
 ### Installation Instructions:
 1. Build the control interface board by following [schematics](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Electrical/Schematic.pdf).
 
-2. 3D print STL files located in `/Hardware/Panel 3D Files/STL/`. You will need 3 Brackets, 1 Slide Potentiometer Lever Hat, and one of each of the three faceplates. Use soldering iron to heat insert four M3-4mm knurled brass inserts into each bracket's corner faceplate mounting holes and secure each faceplate to bracket with four M3-6mm bolts.  
+2. 3D print STL files located in `/Hardware/Panel 3D Files/STL/`. You will need 3 Brackets, 1 Slide Potentiometer Lever Hat, and one of each of the three faceplates. Use soldering iron to heat insert four M3-4mm knurled brass inserts into each bracket's corner faceplate mounting holes and secure each faceplate to bracket with four M3-6mm bolts. Note that bracket top mounting holes are misaligned relative to the bottom mounting holes. If you wish to attach the three brackets vertically, drill new upper mounting holes to 2 of 3 the brackets. Bracket mounting hole alignment will be fixed in future. 
 
-3. Install buttons/potentiometers on to faceplate holes (note: You will need to use a deburring tool to slightly enlarge the component holes as there is very little tolerance) and wire up connections between panel and control interface board. Refer to [Bill of Materials](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Bill%20of%20Materials.txt) for parts information. 
+3. Install buttons/potentiometers on to faceplate holes (note: you will need to use a deburring tool to slightly enlarge the component holes as there is very little tolerance) and wire up connections between panel and control interface board. Refer to [Bill of Materials](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Bill%20of%20Materials.txt) for parts information. 
 
 4. To upload microcontroller firmware, install PlatformIO IDE and add `/Software/AVR/FLIGHT SIM SPAD INTERFACE/` as new folder project. Upload code to your Arduino Pro Micro. 
 
@@ -59,5 +59,5 @@ Notes:
 1. Faceplate component holes do not have much tolerance; you will need to use a debururing to slightly enlarge the holes. 
 2. The size of the microcontroller firmware is large relative to flash program memory of the Arduino Pro Micro. As such, many repeated firmware uploads may randomly corrupt the bootloader. You will need another Arduino or an AVR programmer to reupload the bootloader to allow firmware uploading from your IDE.  
 
-Issues:
-Bracket top/bottom mounting holes are not vertically aligned.
+To-do list:
+- Bracket top/bottom mounting holes are not vertically aligned.
