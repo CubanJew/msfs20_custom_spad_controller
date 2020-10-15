@@ -71,3 +71,4 @@ To-do list:
 - Implement spare 2 buttons and 1 potentiometer on panel. 
 - Fabricate front faceplates with backlit labels using http://www.frontpanelexpress.com/ 
 - Clean up code
+- PWM brightness control for LEDs
