@@ -54,7 +54,7 @@ Control board utilizes x3 MCP23017 I2C I/O expander ICs to provide control over 
 
 References:
 
-- [Fusion 360 3D Design File](https://a360.co/2SDgtfb)
+- [Fusion 360 3D Design File](https://a360.co/2SDgtfb) or `/Hardware/Panel 3D Files/FLIGHT SIM COCKPIT v27.f3d`
 - [Schematic](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Electrical/Schematic.pdf)
 - [I/O Reference Table](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Electrical/IO%20Table.JPG) 
 - [Bill of Material](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Bill%20of%20Materials.txt)
