@@ -14,7 +14,7 @@ Supports:
 - **2 selector switches**
 	_[engine mode switch (crank/normal/ignition), parking break]_
 - **6 potentiometers** (5 rotary + 1 slide)
-	_[lights: PFD/ND/FD, ECAM, flood, panel, 1 TBD (spare);  speed brake (slide pot)]_
+	_[lights: PFD/ND/FD, ECAM, flood, panel, x1 TBD (spare);  speed brake (slide pot)]_
 - **1 foot pedal switch**
 	_[brake pedals]_
 
@@ -63,3 +63,4 @@ To-do list:
 - Fix bracket top mounting hole alignment.
 - Combine ground spoiler arm toggle switch and speed brake slide potentiometer into a single physical component.
 - Add logic to force game's initial state of anti-skid, ground spoiler arm, and parking brake to match control board when controller is first connected.
+- Implement spare 2 buttons and 1 potentiometer on panel. 
