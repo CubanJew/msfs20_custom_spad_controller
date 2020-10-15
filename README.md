@@ -27,6 +27,7 @@ Control board utilizes x3 MCP23017 I2C I/O expander ICs to provide control over 
 3. Add each of the scripts included in `\Software\SPAD.next Configuration\` folder to SPAD.neXt script panel.
 
 
+![alt text](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/resources/3d%20render.png?raw=true)
 
 References:
 
