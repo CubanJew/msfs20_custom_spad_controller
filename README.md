@@ -4,8 +4,6 @@ Microsoft Flight Simulator 2020 - Custom Flight Panel Controller
 ### Description:
 Custom control panel for Microsoft Flight Simulator 2020 using SPAD.neXt as interface between game and Arduino microcontroller. Designed with A320 in mind. Panel is meant to be mounted to the side of Logitech G Flight Simulator Panel bracket. 
 
-[View Photo gallery](https://imgur.com/a/4q6AOHk)
-
 ![alt text](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/resources/readme_image.jpg?raw=true)
 ![alt text](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/resources/readme_image2.png?raw=true)
 
@@ -60,6 +58,7 @@ References:
 - [Schematic](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Electrical/Schematic.pdf)
 - [I/O Reference Table](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Electrical/IO%20Table.JPG) 
 - [Bill of Material](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Bill%20of%20Materials.txt)
+- [Project Photo Gallery](https://imgur.com/a/4q6AOHk)
 
 Notes:
 1. Faceplate component holes do not have much tolerance; you will need to use a debururing to slightly enlarge the holes. 
