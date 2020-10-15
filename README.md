@@ -9,7 +9,7 @@ Supports:
 	_[fuel pumps 1-6, cross-feed pump, APU-master, APU-start, APU-bleed air, APU-gen, external power, auto-brake level control (low + med + max) x2 TBD (spare)]_
 	
 - 5 toggle switches
-	_[anti-skid, ground spoiler arm, engine 1 master starter, engine 2 master starter, reverse throttle toggle]_
+	_[anti-skid, ground spoiler arm, engine 1 + 2 master starters, reverse throttle toggle]_
 	
 - 2 selector switches
 	_[engine mode switch (crank/normal/ignition), parking break]_
