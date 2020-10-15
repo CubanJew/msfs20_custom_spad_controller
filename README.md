@@ -72,3 +72,7 @@ To-do list:
 - Fabricate front faceplates with backlit labels using http://www.frontpanelexpress.com/ 
 - Clean up code
 - PWM brightness control for LEDs
+
+Version History:
+- 10/14/20: Initial release
+- 10/15/20: Changed Antiskid, Spoiler Arm, and Park Brake input button types to LOCAL to offload command execution to SPAD.neXt script (to ensure fidelity between game state and physical toggle switch state). Affects AVR code and adds 3 new scripts to SCRIPTS PANEL (`\Software\SPAD.next Configuration\` "ANTI SKID TOG.xml",  "GND SPOILER ARM TOGGLE.xml", "GND SPOILER ARM TOG.xml", "PARK BRAKE SS.xml").
