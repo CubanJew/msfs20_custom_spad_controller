@@ -5,19 +5,18 @@ Microsoft Flight Simulator 2020 - Custom Panel Controller
 Custom control panel for Microsoft Flight Simulator 2020 using SPAD.neXt as interface between game and Arduino microcontroller. Designed with A320 in mind.
 
 Supports:
-- 17 pushbutton w/ LED (LED is controlled by state of control in the game)..
-
-	_fuel pumps 1-6, fuel transfer pump, APU-master, APU-start, APU-bleed air, APU-gen, external power, auto-brake level control (low + med + max) x2 TBD (spare)_
+- 17 pushbutton w/ LED (LED is controlled by state of control in the game).
+	_(fuel pumps 1-6, cross-feed pump, APU-master, APU-start, APU-bleed air, APU-gen, external power, auto-brake level control (low + med + max) x2 TBD (spare))_
 	
 - 5 toggle switches
-	_anti-skid, ground spoiler arm, engine 1 master starter, engine 2 master starter, reverse throttle toggle_
+	_(anti-skid, ground spoiler arm, engine 1 master starter, engine 2 master starter, reverse throttle toggle)_
 	
 - 2 selector switches
-	_engine mode switch (crank/normal/ignition), parking break_
+	_(engine mode switch (crank/normal/ignition), parking break)_
 - 6 potentiometers (5 rotary + 1 slide)
-	_lights: PFD/ND/FD, ECAM, flood, panel, 1 TBD (spare);  speed brake (slide pot)_
+	_(lights: PFD/ND/FD, ECAM, flood, panel, 1 TBD (spare);  speed brake (slide pot))_
 - 1 foot pedal switch
-	_brake pedals_
+	_(brake pedals)_
 
 
 Engine 1 & 2 master starters
