@@ -1,4 +1,4 @@
-Copy the included scripts in this folder to SPAD.neXt.
+Copy the included scripts in this folder to your SPAD.neXt SCRIPT PANEL.
 
 These SPAD.neXt scripts are required due to:
 
