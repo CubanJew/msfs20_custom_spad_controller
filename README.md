@@ -62,3 +62,4 @@ Notes:
 To-do list:
 - Bracket top/bottom mounting holes are not vertically aligned.
 - Combine ground spoiler arm toggle switch and speed brake slide potentiometer into a single physical component.
+- Add logic to force game's initial state of anti-skid, ground spoiler arm, and parking brake to match control board when controller is first connected.
