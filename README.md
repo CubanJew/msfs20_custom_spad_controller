@@ -61,3 +61,4 @@ Notes:
 
 To-do list:
 - Bracket top/bottom mounting holes are not vertically aligned.
+- Combine ground spoiler arm toggle switch and speed brake slide potentiometer into a single physical component.
