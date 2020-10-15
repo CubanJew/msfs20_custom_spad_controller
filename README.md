@@ -70,3 +70,4 @@ To-do list:
 - Add logic to force game's initial state of anti-skid, ground spoiler arm, and parking brake to match control board when controller is first connected.
 - Implement spare 2 buttons and 1 potentiometer on panel. 
 - Fabricate front faceplates with backlit labels using http://www.frontpanelexpress.com/ 
+- Clean up code
