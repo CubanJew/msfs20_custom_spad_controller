@@ -2,7 +2,7 @@
 Microsoft Flight Simulator 2020 - Custom Panel Controller
 
 
-Installation Instructions:
+### Installation Instructions:
 
 1. Upload firmware (located in folder "\Software\AVR\") to Arduino Pro Micro
 
@@ -15,3 +15,6 @@ Installation Instructions:
 
 
 
+References:
+
+- [Fusion 360 3D Design File](https://a360.co/2SDgtfb)
