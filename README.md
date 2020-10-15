@@ -6,20 +6,17 @@ Custom control panel for Microsoft Flight Simulator 2020 using SPAD.neXt as inte
 
 Supports:
 - 17 pushbutton w/ LED (LED is controlled by state of control in the game).
-	_(fuel pumps 1-6, cross-feed pump, APU-master, APU-start, APU-bleed air, APU-gen, external power, auto-brake level control (low + med + max) x2 TBD (spare))_
+	_[fuel pumps 1-6, cross-feed pump, APU-master, APU-start, APU-bleed air, APU-gen, external power, auto-brake level control (low + med + max) x2 TBD (spare)]_
 	
 - 5 toggle switches
-	_(anti-skid, ground spoiler arm, engine 1 master starter, engine 2 master starter, reverse throttle toggle)_
+	_[anti-skid, ground spoiler arm, engine 1 master starter, engine 2 master starter, reverse throttle toggle]_
 	
 - 2 selector switches
-	_[engine mode switch (crank/normal/ignition), parking break)_
+	_[engine mode switch (crank/normal/ignition), parking break]_
 - 6 potentiometers (5 rotary + 1 slide)
 	_[lights: PFD/ND/FD, ECAM, flood, panel, 1 TBD (spare);  speed brake (slide pot)]_
 - 1 foot pedal switch
 	_[brake pedals]_
-
-
-Engine 1 & 2 master starters
 
 
 Control board utilizes x3 MCP23017 I2C I/O expander ICs to provide control over 48 distinct inputs/outputs with just 2 Arduino pins. For LED outputs, each MCP23017 I/O pin is connected to an LED with a series resistor. For button inputs, each button is connected directly to an MCP23017 I/O pin, with an internal pull-up resistor enabled via software. All buttons are daisy-chained to ground on one side, and therefore no additional components are necessary for handling button inputs. 
