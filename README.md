@@ -19,7 +19,7 @@ Supports:
 	_[brake pedals]_
 
 
-Control board utilizes x3 MCP23017 I2C I/O expander ICs to provide control over 48 distinct inputs/outputs with just 2 Arduino pins. For LED outputs, each MCP23017 I/O pin is connected to an LED with a series resistor. For button inputs, each button is connected directly to an MCP23017 I/O pin, with an internal pull-up resistor enabled via software. All buttons are daisy-chained to ground on one side, and therefore no additional components are necessary for handling button inputs. 
+Control board utilizes x3 MCP23017 I2C I/O expander ICs to provide control over 48 distinct inputs/outputs with just 2 Arduino pins. For LED outputs, each MCP23017 I/O pin is connected to an LED with a series resistor. For button inputs, each button is connected directly to an MCP23017 I/O pin, with an internal pull-up resistor enabled via software. All buttons are daisy-chained to ground on one side, and therefore no additional components are necessary for handling button inputs. Note that the pushbutton LEDs are controlled independently of the pushbutton meaning that the LED light state will reflect the state of the respective control in the game whether you cycle the control in the game or via the control panels physical button. The Arduino microcontrller handles detecting button presses and controls LED lights, and utilizes a 2-way serial connection with SPAD.neXT to interface with the game. 
 
 
 ### Installation Instructions:
@@ -31,17 +31,18 @@ Control board utilizes x3 MCP23017 I2C I/O expander ICs to provide control over 
 
 4. To upload microcontroller firmware, install PlatformIO IDE and add `/Software/AVR/FLIGHT SIM SPAD INTERFACE/` as new folder project. Upload code to your Arduino Pro Micro. 
 
-5. Add control interface board to SPAD.neXt as a new Serial device to SPAD.neXt under settings->Devices->Serial Devices->"Add New Device".
+5. Add control interface board to SPAD.neXt as a new Serial device to SPAD.neXt under settings->Devices->Serial Devices->"Add New Device" with the following settings:
 
-	Serial Port = = your USB COM port
+	> Serial Port = = your USB COM port
 	
-	Speed = 115200
+	> Speed = 115200
 	
-	Enable DTR = ON
+	> Enable DTR = ON
 	
-	32 Bit = OFF
+	> 32 Bit = OFF
 	
-
+   Save settings and restart SPAD.neXt. Verify control interface board serial device is connected to SPAD.neXt by going to panels->SERIAL COMXX and selecting "Show Log". If it is not connected press "Connect".
+   
 6. Add each of the scripts included in `/Software/SPAD.next Configuration/` folder to SPAD.neXt script panel.
 
 
