@@ -27,10 +27,9 @@ Control board utilizes x3 MCP23017 I2C I/O expander ICs to provide control over 
 
 2. 3D print STL files located in `/Hardware/Panel 3D Files/STL/`. You will need 3 Brackets, 1 Slide Potentiometer Lever Hat, and one of each of the three faceplates. Use soldering iron to heat insert four M3-4mm knurled brass inserts into each bracket's corner faceplate mounting holes and secure each faceplate to bracket with four M3-6mm bolts.  
 
-3. Install buttons/potentiometers on to faceplate holes (Note: You will need to use a deburring tool to slightly enlarge the component holes as there is very little tolerance) and wire up connections between panel and control interface board.  Refer to [Bill of Materials](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Bill%20of%20Materials.txt) for parts information. 
+3. Install buttons/potentiometers on to faceplate holes (note: You will need to use a deburring tool to slightly enlarge the component holes as there is very little tolerance) and wire up connections between panel and control interface board. Refer to [Bill of Materials](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/Hardware/Bill%20of%20Materials.txt) for parts information. 
 
 4. To upload microcontroller firmware, install PlatformIO IDE and add `/Software/AVR/FLIGHT SIM SPAD INTERFACE/` as new folder project. Upload code to your Arduino Pro Micro. 
-
 
 5. Add control interface board to SPAD.neXt as a new Serial device to SPAD.neXt under settings->Devices->Serial Devices->"Add New Device".
 
