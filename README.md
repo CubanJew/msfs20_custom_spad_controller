@@ -49,6 +49,8 @@ Control board utilizes x3 MCP23017 I2C I/O expander ICs to provide control over 
    
 6. Add each of the scripts included in `/Software/SPAD.next Configuration/` folder to SPAD.neXt script panel.
 
+7. If you have flybywiresim's "A32NX" mod installed you will need to update the mod's light potentiometer indices in order to make the light potentiometers work [(reference)](https://github.com/flybywiresim/a32nx/issues/1202). Install Autohotkey and run script named `A32NX Pot ID Fix.ahk`located in `/Software/A32NX Pot ID Fix/`
+
 
 ![alt text](https://github.com/CubanJew/msfs20_custom_spad_controller/blob/main/resources/3d%20render.png?raw=true)
 
