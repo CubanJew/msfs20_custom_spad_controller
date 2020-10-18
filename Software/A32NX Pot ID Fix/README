@@ -1,0 +1,9 @@
+Download & install autohotkey (https://www.autohotkey.com/) and run "A32NX Pot ID Fix.ahk" script. 
+
+This script will change A32NX mod's light potentiometer indices so that they can be changed via SPAD.neXt.
+
+Once you run the script you will be prompted to specify A32NX mod install location. 
+
+
+Reference: https://github.com/flybywiresim/a32nx/issues/1202
+
