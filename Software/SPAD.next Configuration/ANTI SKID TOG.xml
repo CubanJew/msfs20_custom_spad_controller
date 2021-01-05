@@ -1,0 +1,23 @@
+<BaseEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" BoundTo="SCRIPT_1_5" xmlns="http://www.fsgs.com/SPAD">
+  <EventDefinitions>
+    <EventDefinition Trigger="VALUE">
+      <EventConditions>
+        <EventCondition ConditionComparator="Equals" ConditionTargetValue="1" ConditionValueSource="{DD7E3826-E439-4484-B186-F1443F3BC522}:SWITCHES/ANTISKID" />
+      </EventConditions>
+      <EventActions>
+        <EventActionChangeValue TargetDataDefinition="SIMCONNECT:ANTISKID BRAKES ACTIVE" ValueOperation="Set" Value="1" />
+      </EventActions>
+    </EventDefinition>
+    <EventDefinition Trigger="VALUE">
+      <EventConditions>
+        <EventCondition ConditionComparator="Equals" ConditionTargetValue="-1" ConditionValueSource="{DD7E3826-E439-4484-B186-F1443F3BC522}:SWITCHES/ANTISKID" />
+      </EventConditions>
+      <EventActions>
+        <EventActionChangeValue TargetDataDefinition="SIMCONNECT:ANTISKID BRAKES ACTIVE" ValueOperation="Set" Value="0" />
+      </EventActions>
+    </EventDefinition>
+  </EventDefinitions>
+  <Options>
+    <Option Key="NAME" Value="ANTI SKID TOG" />
+  </Options>
+</BaseEvent>

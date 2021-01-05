@@ -47,7 +47,7 @@ void scanAnalogInputs() {
     //messenger.sendCmd(kSimCommand, "MSFS:GLARESHIELD_LIGHTS_ON");  //cmd_on);
     if(sensorValue == 0)
       sendGlareshieldLightState(false);
-    else
+    else if (sensorValue > 0 && potLastVal[3] == 0)
       sendGlareshieldLightState(true);
 
     sendPotValue(POT_INDEX_FLOOD_DASH_PILOT, sensorValue);  // main panel flood light
@@ -65,7 +65,7 @@ void scanAnalogInputs() {
   sensorValue = map(analogRead(P_AI_POT_SPOILER), 0, 1023, 0, 100);
   if (abs(potLastVal[5] - sensorValue) >= ANALOG_HYSTERESIS) {
     messenger.sendCmdStart(kSimCommand);
-    messenger.sendCmdArg("SIMCONNECT:SPOILERS_SET"); 
+    messenger.sendCmdArg("SIMCONNECT:SPOILERS_SET");
     messenger.sendCmdArg(map(sensorValue, 0, 100, 0, 16383));
     messenger.sendCmdEnd();
     potLastVal[5] = sensorValue;

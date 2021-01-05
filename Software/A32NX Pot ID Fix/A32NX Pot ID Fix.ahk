@@ -7,7 +7,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 Array_orig := [92,93,88,89,87,91,90,86,85,84,81,83,82]
 Array_replace := [22,23,18,19,17,21,20,16,15,14,11,13,12]
-FileLoc := "E:\Flight Sim\Community\A32NX\SimObjects\AirPlanes\Asobo_A320_NEO\model\A320_NEO_INTERIOR.xml2"
+FileLoc := "E:\Flight Sim\Community\A32NX\SimObjects\AirPlanes\Asobo_A320_NEO\model\A320_NEO_INTERIOR.xml"
 
 
 while (!FileExist(FileLoc)) 

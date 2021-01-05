@@ -26,7 +26,7 @@
 #define P_DO_APU_MASTER_LED     11// B3
 #define P_DO_APU_STARTER_LED    10  // B2
 
-// SWITCH INDEX POSITIONS - MCP2
+// SWITCH INDEX POSITIONS - MCP2 (buttons_1)
 #define P_DI_PWR_EXT             0 // GPA0
 #define P_DI_TBD_2               1 // GPA1 - TO BE IMPLEMENTED
 #define P_DI_TBD_1               2 // GPA2 - TO BE IMPLEMENTED
@@ -44,7 +44,7 @@
 #define P_DI_ENG_MODE_SS2       14 // GPB6
 #define P_DI_ENG_MODE_SS1       15 // GPB7
 
-// SWITCH INDEX POSITION - MCP3
+// SWITCH INDEX POSITION - MCP3 (buttons_2)
 #define P_DO_AUTOBRAKE_MAX_LED      7 // GPA7 (MCP3 ONLY) - SPECIAL CASE!!!
 //P_DI_GPA3
 #define P_DI_GPA0                   0   // GPA0 - NOT IMPLEMENTED

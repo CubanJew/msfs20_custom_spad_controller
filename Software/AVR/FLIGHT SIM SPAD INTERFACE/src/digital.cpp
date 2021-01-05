@@ -16,7 +16,7 @@ void initDIButtonMap() {
   buttons_1[P_DI_TBD_2]               = BUTTON(kINVALID); // button 2 - to be implemented
   buttons_1[P_DI_TBD_1]               = BUTTON(kINVALID); // button 1 - to be implemented
   buttons_1[P_DI_REV_THRUST_TOG]      = BUTTON(kSimCommand, _PB_MOM,         MSFS,        ipstr_revThrustToggle ,   -999);
-  buttons_1[P_DI_SPOILER_ARM]         = BUTTON(kSimCommand, _BINARY,         SIMCONNECT,  ipstr_spoilersArm ,       -999);
+  buttons_1[P_DI_SPOILER_ARM]         = BUTTON(kLOCAL_GND_SPOILER_ARM,      _BINARY,       LOCAL,       0,                       -999); //buttons_1[P_DI_SPOILER_ARM]         = BUTTON(kSimCommand, _BINARY,         SIMCONNECT,  ipstr_spoilersArm ,       -999);
   buttons_1[P_DI_AUTOBRAKE_LOW]       = BUTTON(kSimCommand, _PB_MOM,         SIMCONNECT,  ipstr_abrakeControlLevel, 2); // AUTO-BRAKE= LOW
   buttons_1[P_DI_AUTOBRAKE_MED]       = BUTTON(kSimCommand, _PB_MOM,         SIMCONNECT,  ipstr_abrakeControlLevel, 3); // AUTO-BRAKE= MED
   buttons_1[P_DI_AUTOBRAKE_MAX]       = BUTTON(kSimCommand, _PB_MOM,         SIMCONNECT,  ipstr_abrakeControlLevel, 4); // AUTO-BRAKE= HIGH     @TODO: HANDLE UNKNOWN STATE IF IN-GAME CHANGED
@@ -34,13 +34,14 @@ void initDIButtonMap() {
   buttons_2[P_DI_GPA1]                = BUTTON(kINVALID);
   buttons_2[P_DI_GPA2]                = BUTTON(kINVALID);
   buttons_2[P_DI_FOOT_BRAKE]          = BUTTON(kLOCAL_BRAKE_POS,             _BINARY,    LOCAL,        0 , -999);   // SPECIAL LOGIC
-  buttons_2[P_DI_ANTISKID]            = BUTTON(kANTISKID,                    _TOGGLE,    SIMCONNECT,  ipstr_antiskid, -999);
-  buttons_2[P_DI_BRAKE_PARK]          = BUTTON(kSimCommand,                  _TOGGLE,    SIMCONNECT,  ipstr_parkbrake, -999);  // SPECIAL LOGIC UNDER DATA SUB CALLBACK onChangeParkBrake()
+  buttons_2[P_DI_ANTISKID]            = BUTTON(kLOCAL_ANTISKID,              _BINARY,    LOCAL,       0,               -999); //buttons_2[P_DI_ANTISKID]            = BUTTON(kANTISKID,                    _TOGGLE,    SIMCONNECT,  ipstr_antiskid, -999);
+  buttons_2[P_DI_BRAKE_PARK]          = BUTTON(kLOCAL_PARK_BRAKE,            _BINARY,    LOCAL ,      0, -999);  // SPECIAL LOGIC UNDER DATA SUB CALLBACK onChangeParkBrake() // buttons_2[P_DI_BRAKE_PARK]          = BUTTON(kSimCommand,                  _TOGGLE,    SIMCONNECT,  ipstr_parkbrake, -999);  // SPECIAL LOGIC UNDER DATA SUB CALLBACK onChangeParkBrake()
+
   buttons_2[P_DI_GPA7_DO_NOT_USE]     = BUTTON(kINVALID);
   buttons_2[P_DI_GPB0]                = BUTTON(kINVALID);
   buttons_2[P_DI_FUEL_RT_PMP_2]       = BUTTON(kSimCommand,                 _PB_MOM,     MSFS,       ipstr_fuel_pump, 6);
   buttons_2[P_DI_FUEL_RT_PMP_1]       = BUTTON(kSimCommand,                 _PB_MOM,     MSFS,       ipstr_fuel_pump, 3);
-  buttons_2[P_DI_FUEL_XFEED]          = BUTTON(kSimCommand,                 _PB_MOM,     MSFS,       ipstr_fuelValveToggle, 1);
+  buttons_2[P_DI_FUEL_XFEED]          = BUTTON(kSimCommand,                 _PB_MOM,     MSFS,       ipstr_fuelValveToggle, 3); // was 1
   buttons_2[P_DI_FUEL_CT_PMP_2]       = BUTTON(kSimCommand,                 _PB_MOM,     MSFS,       ipstr_fuel_pump, 4);
   buttons_2[P_DI_FUEL_LT_PMP_2]       = BUTTON(kSimCommand,                 _PB_MOM,     MSFS,       ipstr_fuel_pump, 5);
   buttons_2[P_DI_FUEL_LT_PMP_1]       = BUTTON(kSimCommand,                 _PB_MOM,     MSFS,       ipstr_fuel_pump, 2);

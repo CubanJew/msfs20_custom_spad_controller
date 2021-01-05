@@ -158,8 +158,8 @@ void processChangeCommands(BUTTON * buttons) {
           {
             // ENG1/ENG2 STARTERS: SPAD scripted event actions:
             // CONDITION:
-            //    yuri panel:SWITCHES/ENG1_STARTER_MASTER = 1 or -1
-            //    yuri panel:SWITCHES/ENG2_STARTER_MASTER = 1 or -1
+            //   CJ Custom Panel:SWITCHES/ENG1_STARTER_MASTER = 1 or -1
+            //   CJ Custom Panel:SWITCHES/ENG2_STARTER_MASTER = 1 or -1
             //      (use 1/-1 for on/off so SPAD can distinguish from disconnection when value defaults to 0)
             // ACTIONS:
             //    TURN ON:
@@ -179,8 +179,8 @@ void processChangeCommands(BUTTON * buttons) {
 
                 // ENGINE MODE SELECTOR SWITCH  SPAD scripted event actions:
                 // CONDITION:
-                //    yuri panel:SWITCHES/ENG1_STARTER_MASTER = 1 or 0
-                //    yuri panel:SWITCHES/ENG2_STARTER_MASTER = 1 or 0
+                //    CJ Custom Panel:SWITCHES/ENG1_STARTER_MASTER = 1 or -1
+                //    CJ Custom Panel:SWITCHES/ENG2_STARTER_MASTER = 1 or -1
                 // ACTIONS:
                 //    TURN ON:
                 //        SIMCONNECT:TOGGLE_STARTER1 [arg=0]
@@ -196,9 +196,9 @@ void processChangeCommands(BUTTON * buttons) {
                 break;
 
                 // BRAKE PEDAL  SPAD scripted event actions:
-                // (use SPAD logic due to  2 simulation event calls required for left/right brake)
+                // (use SPAD logic due to 2 simulation event calls required for left/right brake)
                 // CONDITION:
-                //    ...
+                //    CJ Custom Panel:SWITCHES\BRAKE = 1 or 0
                 //
                 // ACTIONS:
                 //    TURN ON:
@@ -210,6 +210,56 @@ void processChangeCommands(BUTTON * buttons) {
             case kLOCAL_BRAKE_POS:
                 messenger.sendCmd(kLOCAL_BRAKE_POS, buttons[i].currentVal);
                 break;
+
+
+            // GROUND SPOILER ARM
+            // (use SPAD logic to ensure fidelity between toggle switch and in-game state)
+            // CONDITION:
+            //    CJ Custom Panel:SWITCHES\GND_SPOILER_ARM = 1 or -1
+            //
+            // ACTIONS:
+            //    TURN ON:
+            //        SIMCONNECT:SIMCONNECT:SPOILERS_ARM_SET [arg=1]
+            //    TURN OFF:
+            //        SIMCONNECT:SIMCONNECT:SPOILERS_ARM_SET [arg=0]
+
+            case kLOCAL_GND_SPOILER_ARM:
+                messenger.sendCmd(kLOCAL_GND_SPOILER_ARM, buttons[i].currentVal == 1 ? 1 : -1);
+                break;
+
+            // ANTISKID
+            // (use SPAD logic to ensure fidelity between toggle switch and in-game state)
+            // CONDITION:
+            //    CJ Custom Panel:SWITCHES\ANTISKID = 1 or -1
+            //
+            // ACTIONS:
+            //    TURN ON:
+            //       SET SIMCONNECT:"ANTISKID BRAKES ACTIVE" = 1
+            //    TURN OFF:
+            //       SET SIMCONNECT:"ANTISKID BRAKES ACTIVE" = 0
+            case kLOCAL_ANTISKID:
+                messenger.sendCmd(kLOCAL_ANTISKID, buttons[i].currentVal == 1 ? 1 : -1);
+                break;
+
+
+
+            // PARK BRAAKE
+            // (use SPAD logic to ensure fidelity between toggle switch and in-game state)
+            // CONDITION:
+            //    CJ Custom Panel:SWITCHES\xxxx = 1 or -1
+            //
+            // ACTIONS:
+            //    TURN ON:
+            //       SIMCONNECT:"PARKING_BRAKES" [arg=1]
+            //    TURN OFF:
+            //       SET SIMCONNECT:"PARKING_BRAKES" [arg=0]
+            case kLOCAL_PARK_BRAKE:
+                messenger.sendCmd(kLOCAL_PARK_BRAKE, buttons[i].currentVal == 1 ? -1 : 1); // inverted value (too l;azy to fix wiring)
+                messenger.sendCmd(kSimCommand, getPStr(ipstr_parkbrake));
+                // @ TODO: CHANGE 0 BACK TO -1 ?
+                break;
+
+
           }
         } else
         {
@@ -251,7 +301,16 @@ void onChangeFuelXFeed() {
 
 void onChangeAntiSkidBrake()
 {
-  antiskid_en = (bool)messenger.readInt32Arg();
+
+  int tmpVal = (bool)messenger.readInt32Arg();
+  // On controller/game state mismatch, force game to align with physical button state
+  if (tmpVal != buttons_2[P_DI_ANTISKID].currentVal)
+  {
+    messenger.sendCmd(kLOCAL_ANTISKID,        buttons_2[P_DI_ANTISKID].currentVal == 1 ? 1 : -1);
+    return;
+  }
+
+  antiskid_en = tmpVal; //(bool)messenger.readInt32Arg();
   // if antiskid disabled, turn off brake level control level
   if (!antiskid_en)
     digitalWriteAutoBrakeLEDs(BRAKE_OFF);
@@ -259,7 +318,16 @@ void onChangeAntiSkidBrake()
 // LOCAL LOGIC FOR AUTO BRAKE LEVEL CONTROL
 void onChangeAutoBrakeCB() {
   //int val = messenger.readInt32Arg();
+  // On controller/game state mismatch, force game to align with physical button state
+  //int tmpVal = !(messenger.readInt32Arg());
+  //if (tmpVal != buttons_2[P_DI_ANTISKID].currentVal)
+  //{
+  //    messenger.sendCmd(kLOCAL_ANTISKID, buttons_2[P_DI_ANTISKID].currentVal == 1 ? 1 : -1);
+  //    return;
+  //}
+
   autoBrake_en =  !(messenger.readInt32Arg());  // 0 = ON, 1 = OFF.
+
   // Currently no way to read Auto Braake Level control state from game.
   // If auto brake level control set in-gaame turn on all 3 auto-brake lights on as an UNKNOWN value condition
   //messenger.sendCmd(kDebug, String(String("GOT CB CHANGE-") + String(val)));
@@ -273,8 +341,20 @@ void onChangeAutoBrakeCB() {
 }
 void onChangeParkBrake() {
   // On controller/game position mismatch toggle game's park brake switch to force alignment
-  if (((bool)messenger.readInt32Arg() != (mcp3.digitalRead(P_DI_BRAKE_PARK)))) // mcp input inverted instead of changing wiring
-      messenger.sendCmd(kSimCommand, getPStr(ipstr_parkbrake));
+  boolean gameVal = (bool)messenger.readInt32Arg();
+  if (gameVal != !buttons_2[P_DI_BRAKE_PARK].currentVal)
+  {
+     messenger.sendCmd(kSimCommand, getPStr(ipstr_parkbrake));
+  }
+
+  //String str = "loc=" + String(!buttons_2[P_DI_BRAKE_PARK].currentVal) + " event update=" + String(gameVal) + " send= ";
+  //str += buttons_2[P_DI_BRAKE_PARK].currentVal == 1 ? "-1" : "1";
+
+  //messenger.sendCmd(kDebug, str); // value inverted (too lazy to change wiring)
+  //if (/*((bool)messenger.readInt32Arg()*/ gameVal != !buttons_2[P_DI_BRAKE_PARK].currentVal)  //](mcp3.digitalRead(P_DI_BRAKE_PARK)))) // mcp input inverted instead of changing wiring
+    //messenger.sendCmd(kLOCAL_PARK_BRAKE, buttons_2[P_DI_BRAKE_PARK].currentVal == 1 ? -1 : 1); // value inverted (too lazy to change wiring)
+//    messenger.sendCmd(kSimCommand, getPStr(ipstr_parkbrake));
+
 }
 
 void onChangeAPU_gen() {
@@ -312,6 +392,13 @@ void onChangeStarter() {
   mcp1.digitalWrite(P_DO_APU_STARTER_LED, messenger.readInt32Arg()); // verify valrange (0-3)
 
 }
+void onChangeGNDSpoilerArm() {
+  // On controller/game state mismatch, force game to align with physical button state
+  int gameVal = messenger.readInt32Arg();
+  if (gameVal != buttons_1[P_DI_SPOILER_ARM].currentVal)
+    messenger.sendCmd(kLOCAL_GND_SPOILER_ARM, buttons_1[P_DI_SPOILER_ARM].currentVal == 1 ? 1 : -1);
+}
+
 void attachCommandCallbacks()
 {
   // Attach callback methods - dont forget to sub below
@@ -324,7 +411,7 @@ void attachCommandCallbacks()
   messenger.attach(kFUEL_PMP5 , onChangeFP5);
   messenger.attach(kFUEL_PMP6 , onChangeFP6);
   messenger.attach(kFUEL_XFEED , onChangeFuelXFeed);
-  messenger.attach(kAUTOBRAKE_CB_EN, onChangeAutoBrakeCB);
+  messenger.attach(kAUTOBRAKE_CB_EN, onChangeAutoBrakeCB); // for auto brake light logic
   messenger.attach(kANTISKID, onChangeAntiSkidBrake);
   messenger.attach(kPARKBRAKE_POS, onChangeParkBrake);
 
@@ -338,6 +425,10 @@ void attachCommandCallbacks()
   messenger.attach(kENG2_Master_Pos, onChangeEng2Master);
 
   messenger.attach(kAPU_STARTER, onChangeStarter);
+
+  messenger.attach(kGND_Spoiler_Arm, onChangeGNDSpoilerArm);
+
+
 
 }
 
@@ -387,8 +478,8 @@ void onIdentifyRequest()
     for (int i = 0; i < 6; i++)
       subscribeData(pumpChannel[i], MSFS,       ("FUELSYSTEM PUMP ACTIVE:" + String(pumpIDs[i])).c_str());
 
-    subscribeData(kFUEL_XFEED,      MSFS,      "FUELSYSTEM VALVE SWITCH:1"); // FUEL X-FEED
-    subscribeData(kANTISKID,        SIMCONNECT, getPStr(ipstr_antiskid).c_str()/*.c_str()*/); //str_antiskid); // ANTI-SKID  (also needed for digitalWriteAutoBrakeLEDs())
+    subscribeData(kFUEL_XFEED,      MSFS,      "FUELSYSTEM VALVE SWITCH:3"); // FUEL X-FEED // was 1
+    subscribeData(kANTISKID,        SIMCONNECT, getPStr(ipstr_antiskid).c_str()); //str_antiskid); // ANTI-SKID  (also needed for digitalWriteAutoBrakeLEDs())
     subscribeData(kAUTOBRAKE_CB_EN, SIMCONNECT, "AUTO BRAKE SWITCH CB"); // auto brake level control circuit breaker (needed for digitalWriteAutoBrakeLEDs())
     subscribeData(kPARKBRAKE_POS,   SIMCONNECT, getPStr(ipstr_parkBrakeState).c_str());
     // APU ...
@@ -400,6 +491,9 @@ void onIdentifyRequest()
 
     subscribeData(kAPU_STARTER,   MSFS, "APU SWITCH");
 
+    subscribeData(kGND_Spoiler_Arm,   SIMCONNECT, getPStr(ipstr_gndSpoilerArm).c_str());
+
+
 
     // expose LOCAL DEVICE variable for MASTER START SWITCH (spad scripted event handles logic) ...
     // ... ENG1-MASTER SWITCH & ENG2-MASTER SWITCH:
@@ -410,6 +504,14 @@ void onIdentifyRequest()
     exposeLocalDeviceVariable(kLOCAL_ENG_MODE_SS_POS_START, "switches/ENG_MODE_SS_START", "?", "?");
 
     exposeLocalDeviceVariable(kLOCAL_BRAKE_POS, "switches/BRAKE", "?", "?");
+
+    exposeLocalDeviceVariable(kLOCAL_GND_SPOILER_ARM, "switches/GND_SPOILER_ARM", "?", "?");
+
+    exposeLocalDeviceVariable(kLOCAL_ANTISKID, "switches/ANTISKID", "?", "?");
+
+    //exposeLocalDeviceVariable(kLOCAL_PARK_BRAKE, "switches/PARK_BRAKE", "?", "?");  // NOT NEEDED ANY MORE... DELETE SCRIPT XML
+
+
 
 
     // ... end expose local device variable
@@ -430,15 +532,22 @@ void onIdentifyRequest()
   isReady = true;
 
 
-
-  // SEND as-found state of physical toggle switches (that use toggle events) in event controller reconnected mid-game
+/*
+  // SEND as-found state of physical toggle switches in event controller reconnected mid-game
   //messenger.sendCmd(kLOCAL_ENG_MST_STARTER_1, !buttons_1[i].currentVal == 0 ? -1 : 1);
   messenger.sendCmd(kLOCAL_ENG_MST_STARTER_1, !buttons_1[P_DI_ENG_MST_1].currentVal == 1 ? 1 : -1);
   messenger.sendCmd(kLOCAL_ENG_MST_STARTER_2, !buttons_1[P_DI_ENG_MST_2].currentVal == 1 ? 1 : -1);
 
   messenger.sendCmd(kLOCAL_ENG_MODE_SS_POS_CRANK, buttons_1[P_DI_ENG_MODE_SS1].currentVal == 1 ? 1 : -1);
   messenger.sendCmd(kLOCAL_ENG_MODE_SS_POS_START, buttons_1[P_DI_ENG_MODE_SS2].currentVal == 1 ? 1 : -1);
-  //
+
+  messenger.sendCmd(kLOCAL_GND_SPOILER_ARM, buttons_1[P_DI_SPOILER_ARM].currentVal == 1 ? 1 : -1);
+  messenger.sendCmd(kLOCAL_ANTISKID,        buttons_2[P_DI_ANTISKID].currentVal == 1 ? 1 : -1);
+
+*/
+
+messenger.sendCmd(kLOCAL_PARK_BRAKE,      buttons_2[P_DI_BRAKE_PARK].currentVal == 1 ? -1 : 1); // value inverted (too lazy to change wiring)
+
   return;
 }
  void exposeLocalDeviceVariable(COMMAND_TYPE cmdID, String path, String varName, String description)

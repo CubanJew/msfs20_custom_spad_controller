@@ -19,23 +19,32 @@ COMMAND_TYPE
   kFUEL_PMP6 = 15,
   kFUEL_XFEED = 16,
   kLIGHT_ND = 17,  //??
-  kANTISKID = 18,
-  kAUTOBRAKE_CB_EN = 19,
+  kANTISKID = 18,     // REMOVE???
+  kAUTOBRAKE_CB_EN = 19,  // ground spoiler arm
   kPARKBRAKE_POS = 20,
   kAPU_GEN_POS = 21,
   kAPU_BLEED_POS = 22,
   kAPU_MASTER_POS = 23,
   kExtPower_POS = 24,
+  kAPU_STARTER = 31,
+  kGND_Spoiler_Arm = 36,
 
-  kLOCAL_ENG_MST_STARTER_1 = 25,
-  kLOCAL_ENG_MST_STARTER_2 = 26,
-  kLOCAL_ENG_MODE_SS_POS_CRANK = 27,
-  kLOCAL_ENG_MODE_SS_POS_START = 28,
+  kLOCAL_ENG_MST_STARTER_1 = 25,      // controller's switch position
+  kLOCAL_ENG_MST_STARTER_2 = 26,      // controller's switch position
+  kLOCAL_ENG_MODE_SS_POS_CRANK = 27,  // controller's switch position
+  kLOCAL_ENG_MODE_SS_POS_START = 28,  // controller's switch position
+  kLOCAL_PARK_BRAKE = 35,
+  kLOCAL_BRAKE_POS = 32,
+  kLOCAL_GND_SPOILER_ARM = 33,
+  kLOCAL_ANTISKID = 34,
+
 
   kENG1_Master_Pos = 29,  //in-game ENG1 MASTER switch position
   kENG2_Master_Pos = 30,  //in-game ENG2 MASTER switch position
-  kAPU_STARTER = 31,
-  kLOCAL_BRAKE_POS = 32,
+
+
+
+
 
   kINVALID = 255,
 

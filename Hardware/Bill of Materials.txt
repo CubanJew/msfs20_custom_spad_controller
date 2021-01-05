@@ -1,4 +1,4 @@
-Panel Controls (see "Hardware\Electrical\IO Table.jpg" for BOM # cross-reference):
+Panel Controls (see "/Hardware/Electrical/IO Table.jpg" for BOM # cross-reference):
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 BOM #	QTY	Description										Model						Link
 1	14	12mm Blue LED Momentary SPST-1NO Pushbutton 4-Pin 3VDC					SKU CP.QM.940-C					https://www.ebay.com/p/925617176
@@ -23,6 +23,7 @@ QTY	Description
 12	M3 6mm bolts
 12	M3 4mm height knurled brass insert
 
+
 Control board:
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Qty	Description
@@ -42,3 +43,13 @@ Qty	Description
 A.R.	Wire
 A.R.	Standoffs
 A.R.	Perfboard
+Opt	Micro USB Panel Mount cable 			https://www.amazon.com/gp/product/B07BK4WZV9/
+
+
+
+
+
+
+
+* A.R. = As-required
+* Opt. = Optional
