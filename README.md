@@ -77,4 +77,5 @@ To-do list:
 
 Version History:
 - 10/14/20: Initial release
+- 01/05/21: Update valve indices due to game update for fuel x-feed (from 1 to 3) pushbutton & LED [main.cpp, digital.cpp]; ENG1 & ENG2 MASTER SWITCH (from 6 to 1 and 2, respectively) SPAD scripts [ENG1 MASTER SW.xml, ENG2 MASTER SW.xml]
 
