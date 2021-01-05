@@ -509,7 +509,7 @@ void onIdentifyRequest()
 
     exposeLocalDeviceVariable(kLOCAL_ANTISKID, "switches/ANTISKID", "?", "?");
 
-    //exposeLocalDeviceVariable(kLOCAL_PARK_BRAKE, "switches/PARK_BRAKE", "?", "?");  // NOT NEEDED ANY MORE... DELETE SCRIPT XML
+    exposeLocalDeviceVariable(kLOCAL_PARK_BRAKE, "switches/PARK_BRAKE", "?", "?");  // NOT NEEDED ANY MORE... DELETE SCRIPT XML
 
 
 
